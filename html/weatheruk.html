@@ -15,7 +15,9 @@
     <script>
         const postalCode = "CV370DX";
         const country = "GB";
-        loadWeather(postalCode, country);
+        $( document ).ready(function() {
+            loadWeather(postalCode, country);
+        });
     </script>
 </head>
 <body>

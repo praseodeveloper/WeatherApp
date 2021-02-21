@@ -1,4 +1,5 @@
-const apiKey = "086a7ce659b64ddca3893256ba692493";
+//const apiKey = "086a7ce659b64ddca3893256ba692493";
+const apiKey = "1881e2081d184c169dbc7b8112fa2a04";
 const weatherIconUrl = "https://www.weatherbit.io/static/img/icons/";
 
 function getCityName(cityName){
