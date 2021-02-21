@@ -1,5 +1,5 @@
 //const apiKey = "086a7ce659b64ddca3893256ba692493";
-const apiKey = "1881e2081d184c169dbc7b8112fa2a04";
+//const apiKey = "1881e2081d184c169dbc7b8112fa2a04";
 const weatherIconUrl = "https://www.weatherbit.io/static/img/icons/";
 
 function getCityName(cityName){
@@ -9,6 +9,7 @@ function getCityName(cityName){
         { old: "Thiruvananthapuram", "new" : "Trivandrum"},
         { old: "Bengaluru", "new" : "Bangalore"},
         { old: "REG.-BEZ. STUTTGART", "new" : "Stuttgart"},
+        { old: "", "new" : "Stockholm"},
     ];
     let renamedCityEntry = cityNames.filter(entry => entry.old.toLowerCase() === cityName.toLowerCase());
     return renamedCityEntry.length ? renamedCityEntry[0]["new"] : cityName;
@@ -20,16 +21,36 @@ function loadWeather(postalCode, country){
 //    const weatherUrl = "https://api.weatherbit.io/v2.0/current?key=" + apiKey +
 //                        "&lang=en&units=M&postal_code=" + postalCode +
 //                        "&country=" + country;
-    const weatherForecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?key=" + apiKey +
-                         "&lang=en&units=M&postal_code=" + postalCode +
-                         "&country=" + country +
-                         "&days=7";
+//    const weatherForecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?key=" + apiKey +
+//                         "&lang=en&units=M&postal_code=" + postalCode +
+//                         "&country=" + country +
+//                         "&days=7";
+//    $.ajax({
+//      url: weatherForecastUrl,
+//      success: success,
+//      dataType: "json"
+//    });
     $.ajax({
-      url: weatherForecastUrl,
-      success: success,
-      dataType: "json"
+          url: "/weatherdata",
+          data: "postalCode=" + postalCode + "&country=" + country,
+          success: success,
+          dataType: "json"
     });
 }
+
+//var methods = {
+//    getWeatherData : function(postalCode, countryCode, callback){
+//         const weatherForecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?key=" + apiKey +
+//                                 "&lang=en&units=M&postal_code=" + postalCode +
+//                                 "&country=" + country +
+//                                 "&days=7";
+//            $.ajax({
+//              url: weatherForecastUrl,
+//              success: callback,
+//              dataType: "json"
+//            });
+//    }
+//}
 
 function success(weatherData){
     if (weatherData && weatherData.data && weatherData.data.length) {
@@ -93,3 +114,5 @@ function getWeekday(unixTimestamp){
 //    var fullDate = weekday + ', ' + month+' '+day+'-'+year; //+''+hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 //    return fullDate;
 //}
+
+//module.exports = methods;
