@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather data</title>
+    <title>Our weather dashboard</title>
+    <script>
+        $(document).ready(function() {
+            // auto refresh page after 30 minutes
+            setInterval('refreshPage()', 1800000);
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+    </script>
 </head>
 <body>
 <iframe src="./html/weatherblr.html" height="305px" width="405px"></iframe>
