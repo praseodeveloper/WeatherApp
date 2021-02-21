@@ -1,0 +1,51 @@
+const express = require('express')
+const app = express()
+const port = 3000
+const https = require('https');
+//const axios = require('axios');
+const path = require('path');
+
+//const weatherUrl = "https://api.weatherbit.io/v2.0/current?key=086a7ce659b64ddca3893256ba692493&lang=en&units=M&postal_code=76139&country=DE";
+
+//app.get('/', (req, res) => {
+//  //doWork2(function(result){ res.send(result); });
+//})
+
+["/", "/index.html"].forEach(function(entryPoint){
+    app.get(entryPoint, (req, res) => {
+        res.sendFile(path.join(__dirname + '/html/weathercontainer.html'));
+    });
+});
+
+app.get('^/js/:js(*.js)', (req, res) => {
+   res.sendFile(path.join(__dirname + '/js/' + req.params.js));
+});
+
+app.get('^/:html(weather*.html)', (req, res) => {
+   res.sendFile(path.join(__dirname + '/html/' + req.params.html));
+});
+
+app.get('^/mockData/:json(*.json)', (req, res) => {
+   res.sendFile(path.join(__dirname + '/mockData/' + req.params.json));
+});
+
+app.get('^/css/:css(*.css)', (req, res) => {
+   res.sendFile(path.join(__dirname + '/css/' + req.params.css));
+});
+
+//function doWork2(callback){
+//    var result = "";
+//    axios.get(weatherUrl)
+//        .then(response => {
+//           var weatherData = response.data;
+//           console.log(weatherData.data[0].temp);
+//           callback(weatherData.data[0].temp.toString());
+//     })
+//     .catch(error => {
+//       callback(error);
+//     });
+//}
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})

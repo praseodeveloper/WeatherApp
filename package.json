@@ -1,0 +1,15 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "A simple html based weather application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "praseodeveloper@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
