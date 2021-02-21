@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather data</title>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous">
+    </script>
+    <script src="../js/WeatherTemplate.js" defer></script>
+    <script src="../js/WeatherUtils.js"></script>
+    <script>
+     const postalCode = "560048";
+     const country = "IN";
+     loadWeather(postalCode, country);
+        // const apiKey = "086a7ce659b64ddca3893256ba692493";
+    </script>
+</head>
+<body>
+
+<!--<div class="wrapper">-->
+<!--    <div class="weather">-->
+<!--        <div class="cont1">-->
+<!--            <div class="city_name" id="city_name"></div>-->
+<!--            <div class="ob_time" id="ob_time"></div>-->
+<!--        </div>-->
+<!--        <div class="clearfix"></div>-->
+<!--        <div class="cont">-->
+<!--            <div class="icon">-->
+<!--                <img id="weatherIcon">-->
+<!--            </div>-->
+<!--            <div class="temp">-->
+<!--                <div class="current" id="temp"></div>-->
+<!--                <div class="limit">-->
+<!--                    Max:<label id="max_temp"></label>-->
+<!--                </div>-->
+<!--                <div class="limit">-->
+<!--                    Min:<label id="min_temp"></label>-->
+<!--                </div>-->
+<!--                <div class="limit">-->
+<!--                    Wind:<label id="wind_spd"></label>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash;            <div class="left"><i class="fa fa-angle-left"></i></div>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <div class="right"><i class="fa fa-angle-right"></i></div>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="weatherDescription" id="weatherDescription"></div>-->
+<!--        <div class="clearfix"></div>-->
+<!--        <div class="forecastContent">-->
+<!--            <div class="forecastEntry">-->
+<!--                <div class="forecastEntry" id="day1"></div>-->
+<!--                <div class="forecastEntry"id="temp1"></div>-->
+<!--            </div>-->
+<!--            <div class="forecastEntry">-->
+<!--                <div class="forecastEntry" id="day2"></div>-->
+<!--                <div class="forecastEntry"id="temp2"></div>-->
+<!--            </div>-->
+<!--            <div class="forecastEntry">-->
+<!--                <div class="forecastEntry" id="day3"></div>-->
+<!--                <div class="forecastEntry"id="temp3"></div>-->
+<!--            </div>-->
+<!--            <div class="forecastEntry">-->
+<!--                <div class="forecastEntry" id="day4"></div>-->
+<!--                <div class="forecastEntry"id="temp4"></div>-->
+<!--            </div>-->
+<!--            <div class="forecastEntry">-->
+<!--                <div class="forecastEntry" id="day5"></div>-->
+<!--                <div class="forecastEntry"id="temp5"></div>-->
+<!--            </div>-->
+<!--            <div class="forecastEntry">-->
+<!--                <div class="forecastEntry" id="day6"></div>-->
+<!--                <div class="forecastEntry"id="temp6"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div> &lt;!&ndash; weather &ndash;&gt;-->
+<!--</div> &lt;!&ndash; wrapper &ndash;&gt;-->
+
+</body>
+</html>

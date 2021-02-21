@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "rh": 87.01665,
+      "pod": "n",
+      "lon": 8.3858,
+      "pres": 1003.5086,
+      "timezone": "Europe\/Berlin",
+      "ob_time": "2021-02-20 18:26",
+      "country_code": "DE",
+      "clouds": 7,
+      "ts": 1613845601,
+      "solar_rad": 0,
+      "state_code": "01",
+      "city_name": "Karlsruhe",
+      "wind_spd": 0.7589924,
+      "wind_cdir_full": "east-southeast",
+      "wind_cdir": "ESE",
+      "slp": 1017.1979,
+      "vis": 5,
+      "h_angle": -90,
+      "sunset": "16:57",
+      "dni": 0,
+      "dewpt": 7.3,
+      "snow": 0,
+      "uv": 0,
+      "precip": 0,
+      "wind_dir": 106,
+      "sunrise": "06:23",
+      "ghi": 0,
+      "dhi": 0,
+      "aqi": 38,
+      "lat": 49.0047,
+      "weather": {
+        "icon": "c02n",
+        "code": 802,
+        "description": "Scattered Clouds"
+      },
+      "datetime": "2021-02-20:17",
+      "temp": 9,
+      "station": "F2395",
+      "elev_angle": -11.45,
+      "app_temp": 9
+    }
+  ],
+  "count": 1
+}

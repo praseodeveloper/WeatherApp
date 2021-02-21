@@ -1,0 +1,197 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Helvetica Light', 'Helvetica', Arial, sans-serif;
+    font-weight: lighter;
+}
+html,body,.wrapper{
+  height:100%;
+  width: 100%;
+  padding:0;
+  margin:0 auto;
+}
+.wrapper::before{
+  content:"";
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width: 100%;
+}
+.wrapper{
+  /* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/45816/IMG_00000159_hdr.jpg'); */
+  background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapershome.com%2Fimages%2Fwallpapers%2Fmacos-big-sur-1920x1080-road-apple-october-2020-event-5k-23117.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+}
+.weather{
+  position: relative;
+  height: 275px;
+  width: 400px;
+background: #7abcff; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+  border-radius: 10px;
+  top:calc(50% - 125px);
+  left: calc(50% - 200px);
+  border: 3px solid #FFFFFF;
+  padding: 10px 20px;
+}
+.weather::after{
+  width: 400px;
+  height: 5px;
+  background: red;
+  position:absolute;
+  top:15px;
+}
+.cont1{
+  display: flex;
+}
+
+.forecastContent{
+    display: flex;
+}
+
+.forecastEntry{
+  width: 17%;
+  /*height: 10px;*/
+  padding: 0;
+  /*margin: 5px 0px;*/
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 9pt;
+  /*text-transform: uppercase;*/
+  color: #FFFFFF;
+  font-weight: normal;
+  position: relative;
+}
+
+.city_name{
+  width: 50%;
+  /*height: 10px;*/
+  padding: 0;
+  /*margin: 5px 0px;*/
+  margin-left: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 10pt;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-weight: normal;
+  position: relative;
+}
+.ob_time{
+  width: 50%;
+  /*height: 10px;*/
+  margin-right: 5px;
+  margin-bottom: 5px;
+  color: #FFFFFF;
+  text-align: right;
+  font-weight: normal;
+  font-size: 10pt;
+  float: right;
+}
+.weatherDescription{
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+  margin-bottom: 5px;
+  clear:both;
+  width: 100%;
+}
+.icon{
+  width: 100pt;
+  height:100pt;
+  float: left;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin: 10px 0;
+  position: relative;
+}
+
+.temp{
+  width: 50%;
+  float: right;
+  padding: 10px;
+  color: #FFFFFF;
+  margin: 5px 0;
+  text-align: right;
+}
+.current{
+  font-size: 40pt;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.limit{
+  text-align: right;
+}
+
+.clearfix{
+  clear:both;
+  width: 100%;
+  border-top: 3px solid #FFFFFF;
+
+}
+.left,.date,.right{
+  float: left;
+  width: 33%;
+  height: 35px;
+  margin: 0 auto;
+  padding: 0;
+}
+.left i, .right i{
+  font-size: 38pt;
+  color: #FFFFFF;
+  position: relative;
+  top: -5px;
+}
+.date{
+  text-align: center;
+  position: relative;
+  top: -15px;
+  color: #FFFFFF;
+  font-size: 18pt;
+
+}
+.right{
+  text-align: right;
+
+}
+.spin {
+  animation: spin 60s linear infinite,
+    glow 10s linear infinite;
+}
+@keyframes spin{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.wind{
+  animation: wind 7.5s ease-in-out infinite;
+}
+@keyframes wind{
+  50%{
+     top: 30px;
+     right: 15px;
+  }
+}
+.glow{
+  animation: ;
+}
+@keyframes glow{
+  50%{
+     text-shadow: 0 0 5px #fff;
+  }
+}
