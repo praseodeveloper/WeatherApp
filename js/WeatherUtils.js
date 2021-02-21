@@ -1,3 +1,4 @@
+//const apiKey = "apiKey";
 const apiKey = "apiKey";
 const weatherIconUrl = "https://www.weatherbit.io/static/img/icons/";
 
