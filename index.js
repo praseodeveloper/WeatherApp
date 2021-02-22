@@ -56,43 +56,58 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
+var cachedWeatherData = {};
+
 function getWeatherData(postalCode, country, callback){
     //const apiKey = "086a7ce659b64ddca3893256ba692493";
+     const cacheValidity = 900000; // 15 minutes in ms.
      const apiKey = "1881e2081d184c169dbc7b8112fa2a04";
-     const weatherForecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?key=" + apiKey +
-                             "&lang=en&units=M&postal_code=" + postalCode +
-                             "&country=" + country +
-                             "&days=7";
+     let cachedData = cachedWeatherData[postalCode];
+     let currentTimestamp = new Date().getTime();
 
-     https.get(weatherForecastUrl, (res) => {
-           var { statusCode } = res;
-           var contentType = res.headers['content-type'];
-           let error;
-           if (statusCode !== 200) {
-             error = new Error('Request Failed.\n' +
-                               `Status Code: ${statusCode}`);
-           } else if (!/^application\/json/.test(contentType)) {
-             error = new Error('Invalid content-type.\n' +
-                               `Expected application/json but received ${contentType}`);
-           }
-           if (error) {
-             console.error(error.message);
-             // consume response data to free up memory
-             res.resume();
-           }
-           res.setEncoding('utf8');
-           let rawData = '';
-           res.on('data', (chunk) => {
-             rawData += chunk;
-           });
-           res.on('end', () => {
-             try {
-               const parsedData = JSON.parse(rawData);
-               callback(parsedData);
-               // console.log(parsedData);
-             } catch (e) {
-               console.error(e.message);
-             }
-           });
-     });
+     if(cachedData && (currentTimestamp - cachedData.ts) < cacheValidity){
+            callback(cachedData.data);
+        } else {
+         const weatherForecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?key=" + apiKey +
+                                 "&lang=en&units=M&postal_code=" + postalCode +
+                                 "&country=" + country +
+                                 "&days=7";
+
+         https.get(weatherForecastUrl, (res) => {
+               var { statusCode } = res;
+               var contentType = res.headers['content-type'];
+               let error;
+               if (statusCode !== 200) {
+                 error = new Error('Request Failed.\n' +
+                                   `Status Code: ${statusCode}`);
+               } else if (!/^application\/json/.test(contentType)) {
+                 error = new Error('Invalid content-type.\n' +
+                                   `Expected application/json but received ${contentType}`);
+               }
+               if (error) {
+                 console.error(error.message);
+                 // consume response data to free up memory
+                 res.resume();
+               }
+               res.setEncoding('utf8');
+               let rawData = '';
+               res.on('data', (chunk) => {
+                 rawData += chunk;
+               });
+               res.on('end', () => {
+                 try {
+                   const parsedData = JSON.parse(rawData);
+                   callback(parsedData);
+                   // Update cache
+                   cachedWeatherData[postalCode] = {
+                        ts: new Date().getTime(),
+                        data: parsedData
+                    };
+                   // console.log(parsedData);
+                 } catch (e) {
+                   console.error(e.message);
+                 }
+               });
+         });
+     }
 }

@@ -55,7 +55,6 @@ function loadWeather(postalCode, country){
 function success(weatherData){
     if (weatherData && weatherData.data && weatherData.data.length) {
         document.getElementById("city_name").innerHTML = getCityName(weatherData.city_name); // + ", " + weatherData.country_code;
-        document.getElementById("city_name").innerHTML = getCityName(weatherData.city_name); // + ", " + weatherData.country_code;
         document.getElementById("temp").innerHTML = weatherData.data[0].temp.toFixed(1) +"&deg;C";
         document.getElementById("max_temp").innerHTML = weatherData.data[0].max_temp.toFixed(1) +"&deg;";
         document.getElementById("min_temp").innerHTML = weatherData.data[0].min_temp.toFixed(1) +"&deg;";
