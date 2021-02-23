@@ -9,9 +9,9 @@ Weather app is a simple weather dashboard for multiple cities.
 How to setup and run locally? 
 1. Clone this repository using git clone https://github.com/praseodeveloper/WeatherApp.git
 2. Install node.js in your computer
-3. Open terminal in the repository root folder and run
-npm install
-npm start
+3. Open terminal in the repository root folder and run  
+i. npm install  
+ii. npm start  
 4. Launch https://localhost:3000 
 
 How can I customize the weather tiles? 
