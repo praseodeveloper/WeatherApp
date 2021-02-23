@@ -6,7 +6,7 @@ https://ourweatherboard.eu.openode.io/
 
 Weather app is a simple weather dashboard for multiple cities. 
 
-How to setup and run locally? 
+__How to setup and run locally?__   
 1. Clone this repository using terminal 
 ```
 git clone https://github.com/praseodeveloper/WeatherApp.git
@@ -19,7 +19,7 @@ npm start
 ```
 4. Launch https://localhost:3000 
 
-How can I customize the weather tiles? 
+__How can I customize the weather tiles?__  
 Each tile in the application corresponds to a html file in the html folder. 
 These html files are referred inside iFrames in index.html
 
