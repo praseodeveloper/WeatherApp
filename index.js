@@ -27,8 +27,22 @@ app.get('/weatherdata', (req, res) => {
     });
 });
 
+app.get('/weatherdataforecast', (req, res) => {
+    getWeatherDataForecast(req.query.postalCode, req.query.country, function(weatherData){
+        res.send(weatherData);
+    });
+});
+
 app.get('^/html/:html(weather*.html)', (req, res) => {
    res.sendFile(path.join(__dirname + '/html/' + req.params.html));
+});
+
+app.get('^/icon/:icon(*.png)', (req, res) => {
+   res.sendFile(path.join(__dirname + '/icon/' + req.params.icon));
+});
+
+app.get('^/font/:font(weather*)', (req, res) => {
+   res.sendFile(path.join(__dirname + '/font/' + req.params.font));
 });
 
 app.get('^/mockData/:json(*.json)', (req, res) => {
@@ -57,6 +71,7 @@ app.listen(port, () => {
 })
 
 var cachedWeatherData = {};
+var cachedWeatherDataForecast = {};
 
 function getWeatherData(postalCode, country, callback){
     //const apiKey = "apiKey";
@@ -68,10 +83,70 @@ function getWeatherData(postalCode, country, callback){
      if(cachedData && (currentTimestamp - cachedData.ts) < cacheValidity){
             callback(cachedData.data);
         } else {
+//         const weatherForecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?key=" + apiKey +
+//                                 "&lang=en&units=M&postal_code=" + postalCode +
+//                                 "&country=" + country +
+//                                 "&days=3";
+        const currentWeatherUrl = "https://api.weatherbit.io/v2.0/current?key=" + apiKey +
+                                 "&lang=en&units=M&postal_code=" + postalCode +
+                                 "&country=" + country + "&include=minutely";
+
+         https.get(currentWeatherUrl, (res) => {
+               var { statusCode } = res;
+               var contentType = res.headers['content-type'];
+               let error;
+               if (statusCode !== 200) {
+                 error = new Error('Request Failed.\n' +
+                                   `Status Code: ${statusCode}`);
+               } else if (!/^application\/json/.test(contentType)) {
+                 error = new Error('Invalid content-type.\n' +
+                                   `Expected application/json but received ${contentType}`);
+               }
+               if (error) {
+                 console.error(error.message);
+                 // consume response data to free up memory
+                 res.resume();
+               }
+               res.setEncoding('utf8');
+               let rawData = '';
+               res.on('data', (chunk) => {
+                 rawData += chunk;
+               });
+               res.on('end', () => {
+                 try {
+                   const parsedData = JSON.parse(rawData);
+                   callback(parsedData);
+                   // Update cache
+                   cachedWeatherData[postalCode] = {
+                        ts: new Date().getTime(),
+                        data: parsedData
+                    };
+                   // console.log(parsedData);
+                 } catch (e) {
+                   console.error(e.message);
+                 }
+               });
+         });
+     }
+}
+
+function getWeatherDataForecast(postalCode, country, callback){
+    //const apiKey = "apiKey";
+     const cacheValidity = 900000; // 15 minutes in ms.
+     const apiKey = "apiKey";
+     let cachedData = cachedWeatherDataForecast[postalCode];
+     let currentTimestamp = new Date().getTime();
+
+     if(cachedData && (currentTimestamp - cachedData.ts) < cacheValidity){
+            callback(cachedData.data);
+        } else {
          const weatherForecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?key=" + apiKey +
                                  "&lang=en&units=M&postal_code=" + postalCode +
                                  "&country=" + country +
-                                 "&days=7";
+                                 "&days=4";
+//        const currentWeatherUrl = "https://api.weatherbit.io/v2.0/current/daily?key=" + apiKey +
+//                                 "&lang=en&units=M&postal_code=" + postalCode +
+//                                 "&country=" + country;
 
          https.get(weatherForecastUrl, (res) => {
                var { statusCode } = res;
@@ -99,7 +174,7 @@ function getWeatherData(postalCode, country, callback){
                    const parsedData = JSON.parse(rawData);
                    callback(parsedData);
                    // Update cache
-                   cachedWeatherData[postalCode] = {
+                   cachedWeatherDataForecast[postalCode] = {
                         ts: new Date().getTime(),
                         data: parsedData
                     };
