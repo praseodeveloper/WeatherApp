@@ -9,6 +9,7 @@ function getCityName(cityName){
         { old: "DĀDRI", "new" : "NOIDA"},
         { old: "ZAIDPUR", "new" : "Lucknow"},
         { old: "URAN", "new" : "Mumbai"},
+        { old: "PĪLIBHĪT", "new" : "Ghaziabad"},
         { old: "Thiruvananthapuram", "new" : "Trivandrum"},
         { old: "Bengaluru", "new" : "Bangalore"},
         { old: "REG.-BEZ. STUTTGART", "new" : "Stuttgart"},
@@ -65,16 +66,16 @@ function loadWeather(postalCode, country){
 
 function success(weatherData){
     if (weatherData && weatherData.data && weatherData.data.length) {
-        document.getElementById("city_name").innerHTML = getCityName(weatherData.data[0].city_name); // + ", " + weatherData.country_code;
+        document.getElementById("city_name").innerHTML = getCityName(weatherData.data[0].city_name) + ", " + weatherData.data[0].country_code;
         document.getElementById("temp").innerHTML = weatherData.data[0].temp.toFixed(1) +"&deg;C";
         document.getElementById("wind_spd").innerHTML = Math.round(weatherData.data[0].wind_spd * 3.6) +" km/h";
         document.getElementById("wind_dir").innerHTML = weatherData.data[0].wind_cdir;
         document.getElementById("weatherDescription").innerHTML = weatherData.data[0].weather.description;
         document.getElementById("weatherIcon").src =  "../icon/" + weatherData.data[0].weather.icon + ".png";
-        document.getElementById("uv").innerHTML = weatherData.data[0].uv;
+        document.getElementById("uv").innerHTML = "uv " + weatherData.data[0].uv.toFixed(1);
 
         //icons
-        document.getElementById("windIcon").className = "windDirection wi wi-wind wi-towards-"+ weatherData.data[0].wind_cdir.toLowerCase();
+        document.getElementById("windIcon").className = "wi wi-wind wi-towards-"+ weatherData.data[0].wind_cdir.toLowerCase();
 
         setBackColor(weatherData.data[0].pod);
         updateTime(weatherData.data[0].timezone);
@@ -102,7 +103,7 @@ function successForecast(weatherData){
 }
 
 function updateTime(timezone) {
-  document.getElementById("ob_time").innerHTML = getLocalTime(timezone);
+  document.getElementById("current_time").innerHTML = getLocalTime(timezone);
   var t = setTimeout(function(){ updateTime(timezone) }, 1000); /* setting timer */
 }
 
