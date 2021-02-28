@@ -2,6 +2,11 @@
   box-sizing: border-box;
   font-family: 'Helvetica Light', 'Helvetica', Arial, sans-serif;
 }
+@viewport{
+width: device-width;
+min-width: 240px;
+min-height: 320px;
+}
 
 .row::after {
   content: "";
@@ -33,6 +38,7 @@ html,body,.weather{
   width:100%;
   padding:0;
   margin:0 auto;
+  background: black;
 }
 
 .city_name{
@@ -43,7 +49,7 @@ html,body,.weather{
   color: white;
   font-weight: normal;
   padding: 0;
-  margin:5px auto;
+  margin:0px auto;
 }
 
 .clearfix{
@@ -55,11 +61,11 @@ html,body,.weather{
 .currentTime{
   width: 100%;
   color: white;
-  font-size: 12pt;
+  font-size: 10pt;
   text-align: center;
   font-weight: normal;
   clear:both;
-  margin:5px auto;
+  margin:0px auto;
 }
 
 .weatherDescription{
@@ -69,11 +75,11 @@ html,body,.weather{
   color: #A7A4D4;
   text-align: center;
   clear:both;
-  margin:5px auto;
+  margin:0px auto;
 }
 
 .iconCurrent{
- margin:5px auto;
+ margin:0px auto;
 }
 
 #weatherIcon{
@@ -87,7 +93,7 @@ html,body,.weather{
 .currentWeather{
  color: white;
  text-align: right;
- margin:5px auto;
+ margin:0px auto;
 }
 
 .currentTemp{
@@ -109,7 +115,7 @@ html,body,.weather{
  width: 40px;
  position: relative;
  float: right;
- margin: auto;
+ margin: 0px auto;
 }
 
 .containerLimit{
@@ -131,7 +137,7 @@ html,body,.weather{
 }
 
 .forecastEntry{
- margin: 5px auto;
+ margin: 0px auto;
 }
 
 .forecastDay{
@@ -150,17 +156,17 @@ html,body,.weather{
 
 .forecastDayIcon{
  width: 100%;
- margin: auto;
+ margin: 0px auto;
  display: block;
  width: 40px;
  height: 40px;
 }
 
 .sunEntry{
- margin: 5px auto;
+ margin: 0px auto;
 }
 
-.sunriseSunSet{
+.sunriseSunset{
  display:flex;
 }
 
@@ -176,52 +182,57 @@ html,body,.weather{
 .sunIcon{
   text-align: center;
   margin-top: 5px;
+  margin-bottom: 2px;
 }
 
 i[class*="wi-sun"]{
 /*.wi-sunrise,.wi-sunset{*/
   color: #FF3F3F;
-  font-size: 15pt;
+  font-size: 13pt;
 }
 
 i[class*="wi-sunrise"]{
 /*.wi-sunrise,.wi-sunset{*/
   color: yellow;
-  font-size: 15pt;
+  font-size: 13pt;
 }
 
+.empty{
+ margin:7px auto;
+
+}
 .moonEntry{
- margin: 5px auto;
+ margin: 0px auto;
  text-align:center;
 }
 
 .moonRing{
  color: #F2ECEC;
- font-size: 45pt;
+ font-size: 42pt;
  position: absolute;
  text-align:center;
 }
 
 i[class*="wi-moon-w"]{
  color: white;
- font-size: 45pt;
+ font-size: 42pt;
  text-align:center;
 }
 
 i[class*="wi-moon-t"]{
  color: white;
- font-size: 45pt;
+ font-size: 42pt;
  text-align:center;
 }
 
 i[class*="wi-moon-f"]{
  color: white;
- font-size: 45pt;
+ font-size: 42pt;
  text-align:center;
 }
 
 .windEntry{
- margin: 5px auto;
+ margin: 0px auto;
  text-align: left;
  font-size: 10pt;
  color: #FFFFFF;
@@ -232,13 +243,13 @@ i[class*="wi-moon-f"]{
   text-align: center;
   position: relative;
   color: #FFFFFF;
-  font-size:12pt;
+  font-size:11pt;
   font-weight: normal;
 }
 
 .windIcon{
   text-align: center;
-  font-size:12pt;
+  /*font-size:12pt;*/
 }
 
 i[class*="wi-towards-"]{
@@ -251,10 +262,26 @@ i[class*="wi-towards-"]{
   text-align: center;
   position: relative;
   color: #FFFFFF;
-  font-size:12pt;
+  font-size:11pt;
   font-weight: normal;
 }
 
+.optional{
+   display: none;
+    /*color: white;
+  font-size:18pt;
+   text-align: center;*/
+}
+
+@media screen and (min-height: 325px){
+.optional{
+   /*display: block;*/
+   display: none;
+   }
+/*.weather{
+   height: 340px;
+  }*/
+}
 .weather{
     position: relative;
     /*height: 320px;*/

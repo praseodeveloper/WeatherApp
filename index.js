@@ -2,11 +2,14 @@ const express = require('express')
 const app = express()
 const port = 3000
 const https = require('https');
+const key = require('./js/donotdelete');
+
 //const axios = require('axios');
 const path = require('path');
 const cacheValidity = 43200000; // for testing, once every 12 hrs, use with port 3000
 //const cacheValidity = 1800000; // for real, once every 30 min, use with port 80
 
+const apiKey = key.apiKey;
 //const weatherUrl = "https://api.weatherbit.io/v2.0/current?key=086a7ce659b64ddca3893256ba692493&lang=en&units=M&postal_code=76139&country=DE";
 
 //---------------------------------------------------------------------------------------------------------
@@ -61,10 +64,6 @@ var cachedWeatherData = {};
 var cachedWeatherDataForecast = {};
 
 function getWeatherData(postalCode, country, callback){
-
-     //const apiKey = "apiKey";
-     const apiKey = "apiKey";
-
      let cachedData = cachedWeatherData[postalCode];
      let currentTimestamp = new Date().getTime();
 
@@ -121,9 +120,6 @@ function getWeatherData(postalCode, country, callback){
 
 function getWeatherDataForecast(postalCode, country, callback)
 {
-     //const apiKey = "apiKey";
-     const apiKey = "apiKey";
-
      let cachedData = cachedWeatherDataForecast[postalCode];
      let currentTimestamp = new Date().getTime();
 

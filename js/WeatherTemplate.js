@@ -3,9 +3,9 @@ const template = document.createElement('template');
 template.innerHTML = `
 <!--<div class="wrapper">-->
     <div class="weather" id="tile">
-            <div class="city_name" id="city_name"></div>
+            <div class="city_name col-12" id="city_name"></div>
             <div class="clearfix"></div>
-            <div class="currentTime" id="current_time"></div>
+            <div class="currentTime col-12" id="current_time"></div>
             <div class="weatherDescription" id="weatherDescription"></div>
 
             <div class = "row1">
@@ -73,12 +73,12 @@ template.innerHTML = `
 
             <div class="row3">
                 <div class="col-4 sunEntry">
-                    <div class = "sunriseSunSet">
+                    <div class = "sunriseSunset">
                         <i class="sunIcon wi wi-sunrise" id="sunriseIcon"></i>
                         <div class="sunTime" id="sunrise"></div>
                     </div>
-
-                    <div class = "sunriseSunSet">
+                    <div class="empty"></div>
+                    <div class = "sunriseSunset">
                         <i class="sunIcon wi wi-sunset" id="sunsetIcon"></i>
                         <div class="sunTime" id="sunset"></div>
                     </div>
@@ -100,6 +100,11 @@ template.innerHTML = `
                 </div> <!-- windEntry -->
 
             </div> <!-- containerBottom -->
+
+            <div class="clearfix optional"></div>
+
+
+
     </div> <!-- weather -->
 <!-- </div> wrapper -->
 `;

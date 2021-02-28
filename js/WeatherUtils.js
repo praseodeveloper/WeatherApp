@@ -193,7 +193,7 @@ function getRegionalTime(unixTimestamp, timeZone){
    // console.log('Given IST datetime: ' + date);
 
     let intlDateObj = new Intl.DateTimeFormat('en-US', {
-        hour: 'numeric', minute: 'numeric',
+        hour: 'numeric', minute: 'numeric', hour12:false,
         timeZone: timeZone
     });
     let formattedTime = intlDateObj.format(date);
