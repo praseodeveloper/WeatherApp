@@ -20,9 +20,9 @@ template.innerHTML = `
                     </div>
                     <div class = "containerLimit">
                     <div class="limitCurrent">
-                        <label id="max_temp"></label>
-                        <label class="separator"> | </label>
                         <label id="min_temp"></label>
+                        <label class="separator"> | </label>
+                        <label id="max_temp"></label>
                         <label class="separator"> | </label>
                         <label class="uv" id="uv"></label>
                     </div>
