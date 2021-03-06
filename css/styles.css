@@ -94,6 +94,7 @@ html,body,.weather{
  color: white;
  text-align: right;
  margin:0px auto;
+ padding-right: 15px;
 }
 
 .currentTemp{
@@ -348,7 +349,7 @@ html,body,.wrapper{
 .weather::after{
   width: 400px;
   height: 5px;
-  background: red;
+  background: green;
   position:absolute;
   top:15px;
 }
