@@ -9,23 +9,37 @@ template.innerHTML = `
             <div class="weatherDescription" id="weatherDescription"></div>
 
             <div class = "row1">
-                <div class="col-5 iconCurrent">
-                    <img id="weatherIcon">
+                <div class="col-4 iconCurrent">
+                    <img id="weatherIcon" align="center">
                 </div>
-                <div class="col-7 currentWeather">
-                    <div class="currentTemp" id="temp"></div>
-                    <div class="rain">
-                       <label id="precip"></label>
+                <div class="col-4 currentWeather">
+                   <div class="currentTemp" id="temp"></div>
+                   <div class = "containerLimit">
+                      <div class="limitCurrent">
+                           <label id="min_temp"></label>
+                           <label class="separator"> | </label>
+                           <label id="max_temp"></label>
+                           <!--<label class="separator"> | </label>
+                           <label class="uv" id="uv"></label>-->
+                      </div>
+                   </div>
+                   <div class = "containerLimit">
+                      <label class="uv" id="uv"></label>
+                   </div>
+                </div>
+                <div class="col-4 rain">
+                    <!--<div class="currentTemp" id="temp"></div>-->
                        <img class="rainGif" src="https://media.giphy.com/media/4ZgLV2kGCmbKPEJVCl/giphy.gif">
-                    </div>
-                    <div class = "containerLimit">
-                    <div class="limitCurrent">
+                       <label id="precip"></label>
+                    <!--</div>-->
+                    <!--<div class = "containerLimit">-->
+                    <!--<div class="limitCurrent">
                         <label id="min_temp"></label>
                         <label class="separator"> | </label>
                         <label id="max_temp"></label>
                         <label class="separator"> | </label>
                         <label class="uv" id="uv"></label>
-                    </div>
+                    </div>-->
                     <!--<div class="uv"><label id="uv"></label></div>
                     </div>-->
                 </div>
@@ -101,7 +115,7 @@ template.innerHTML = `
 
             </div> <!-- containerBottom -->
 
-            <div class="clearfix optional"></div>
+            <div class="optional"></div>
 
 
 
