@@ -16,9 +16,9 @@ template.innerHTML = `
                    <div class="currentTemp" id="temp"></div>
                    <div class = "containerLimit">
                       <div class="limitCurrent">
-                           <label id="min_temp"></label>
-                           <label class="separator"> | </label>
                            <label id="max_temp"></label>
+                           <label class="separator"> | </label>
+                           <label id="min_temp"></label>
                            <!--<label class="separator"> | </label>
                            <label class="uv" id="uv"></label>-->
                       </div>
@@ -34,9 +34,9 @@ template.innerHTML = `
                     <!--</div>-->
                     <!--<div class = "containerLimit">-->
                     <!--<div class="limitCurrent">
-                        <label id="min_temp"></label>
-                        <label class="separator"> | </label>
                         <label id="max_temp"></label>
+                        <label class="separator"> | </label>
+                        <label id="min_temp"></label>
                         <label class="separator"> | </label>
                         <label class="uv" id="uv"></label>
                     </div>-->
@@ -51,9 +51,9 @@ template.innerHTML = `
                 <div class="col-4 forecastEntry">
                     <div class="forecastDay" id="day1"></div>
                     <div class = "forecastDayLimit">
-                        <label id="mintemp1"></label>
-                        <label class="separator"> | </label>
                         <label id="maxtemp1"></label>
+                        <label class="separator"> | </label>
+                        <label id="mintemp1"></label>
                     </div>
                     <div>
                        <img class ="forecastDayIcon" id="weatherForecastIcon1">
@@ -62,9 +62,9 @@ template.innerHTML = `
                 <div class="col-4 forecastEntry">
                     <div class="forecastDay" id="day2"></div>
                     <div class = "forecastDayLimit">
-                        <label id="mintemp2"></label>
-                        <label class="separator"> | </label>
                         <label id="maxtemp2"></label>
+                        <label class="separator"> | </label>
+                        <label id="mintemp2"></label>
                     </div>
                     <div>
                       <img class="forecastDayIcon" id="weatherForecastIcon2">
@@ -73,9 +73,9 @@ template.innerHTML = `
                 <div class="col-4 forecastEntry">
                    <div class="forecastDay" id="day3"></div>
                     <div class = "forecastDayLimit">
-                        <label id="mintemp3"></label>
-                        <label class="separator"> | </label>
                         <label id="maxtemp3"></label>
+                        <label class="separator"> | </label>
+                        <label id="mintemp3"></label>
                     </div>
                    <div>
                       <img class="forecastDayIcon" id="weatherForecastIcon3">
