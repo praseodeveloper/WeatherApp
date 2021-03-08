@@ -10,7 +10,6 @@ const cacheValidity = 43200000; // for testing, once every 12 hrs, use with port
 //const cacheValidity = 1800000; // for real, once every 30 min, use with port 80
 
 const apiKey = key.apiKey;
-//const weatherUrl = "https://api.weatherbit.io/v2.0/current?key=086a7ce659b64ddca3893256ba692493&lang=en&units=M&postal_code=76139&country=DE";
 
 //---------------------------------------------------------------------------------------------------------
 ["/", "/index.html"].forEach(function(entryPoint){

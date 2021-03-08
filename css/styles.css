@@ -3,7 +3,7 @@
   font-family: 'Helvetica Light', 'Helvetica', Arial, sans-serif;
 }
 @viewport{
-width: device-width;
+/*width: device-width;*/
 min-width: 240px;
 min-height: 320px;
 }
@@ -83,8 +83,8 @@ html,body,.weather{
 }
 
 #weatherIcon{
- width:70px;
- height:70px;
+ width:65px;
+ height:65px;
  float: left;
  padding: 0px;
  display: block;
@@ -92,28 +92,32 @@ html,body,.weather{
 
 .currentWeather{
  color: white;
- text-align: right;
+ text-align: center;
  margin:0px auto;
- padding-right: 15px;
+ padding-top: 12px;
+
 }
 
 .currentTemp{
- font-size:18pt;
- text-align:right;
- color:#FF8900;
+ font-size:26px;
+ text-align:center;
+ /*color:#FF8900;*/
+ color:#adff2f;
  font-weight: bold;
 }
 
 .rain{
  color: #A7A4D4;
- font-size: 16pt;
+ font-size: 20px;
  text-align:right;
  font-weight: bold;
+ padding-top:15px;
+ padding-right:15px;
 }
 
 .rainGif{
- height: 17px;
- width: 40px;
+ height: 35px;
+ width: 35px;
  position: relative;
  float: right;
  margin: 0px auto;
@@ -122,6 +126,7 @@ html,body,.weather{
 .containerLimit{
  font-size:10pt;
  margin:0px auto;
+ padding-top: 0px;
 }
 
 .separator{
@@ -129,7 +134,7 @@ html,body,.weather{
 }
 
 .limitCurrent{
- text-align: right;
+ text-align: center;
 }
 
 .uv{
@@ -144,7 +149,8 @@ html,body,.weather{
 .forecastDay{
  text-align: center;
  font-size: 12pt;
- color: #FF8000;
+ /*color: #FF8000;*/
+ color: #f9099d;
  font-weight: bold;
 }
 
@@ -205,10 +211,12 @@ i[class*="wi-sunrise"]{
 .moonEntry{
  margin: 0px auto;
  text-align:center;
+ padding-top:8px;
 }
 
 .moonRing{
- color: #F2ECEC;
+ /*color: #F2ECEC;*/
+ color:#1c191a; /*#eae5e8;*/
  font-size: 42pt;
  position: absolute;
  text-align:center;
@@ -238,6 +246,7 @@ i[class*="wi-moon-f"]{
  font-size: 10pt;
  color: #FFFFFF;
  font-weight: normal;
+  padding-top:8px;
 }
 
 .windDir{
@@ -269,24 +278,27 @@ i[class*="wi-towards-"]{
 
 .optional{
    display: none;
+   border-top: 1px solid #FFFFFF;
     /*color: white;
   font-size:18pt;
    text-align: center;*/
 }
 
 @media screen and (min-height: 325px){
-.optional{
-   /*display: block;*/
-   display: none;
-   }
-/*.weather{
-   height: 340px;
-  }*/
+/*.optional{
+     margin-top:85px;
+     display: block;
+   }*/
+  .weather{
+    height: 325px;
+  }
 }
+
 .weather{
-    position: relative;
-    /*height: 320px;*/
-    /*width: 240px; */
+    position: relative;/* i did for uk*/
+    /*height: 96%;
+    width: 440px;*/
+    width: 96%;
 
     /*background: #7abcff; /* Old browsers *
     background: -moz-radial-gradient(center, ellipse cover,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ *
@@ -312,7 +324,7 @@ i[class*="wi-towards-"]{
     left: calc(50% - 200px);*/
     border: 3px solid #FFFFFF;
     padding: 5px 5px;
-    margin:0 auto; /*brings the tile horizontally in center*/
+    /*margin:0 auto; brings the tile horizontally in center, commented for uk*/
 }
 
 /*---------------------------------------------------------------------------
