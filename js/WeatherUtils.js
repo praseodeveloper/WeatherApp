@@ -1,5 +1,3 @@
-//const apiKey = "apiKey";
-//const apiKey = "apiKey";
 const weatherIconUrl = "https://www.weatherbit.io/static/img/icons/";
 
 function getCityName(cityName){
@@ -84,8 +82,14 @@ function success(weatherData){
 
 function successForecast(weatherData){
     if (weatherData && weatherData.data && weatherData.data.length) {
-          document.getElementById("max_temp").innerHTML = weatherData.data[0].max_temp.toFixed(0);
-          document.getElementById("min_temp").innerHTML = weatherData.data[0].min_temp.toFixed(0);
+          var maxtemp = weatherData.data[0].max_temp;
+          var maxtemp = (maxtemp > -1 && maxtemp < 0) ? 0 : maxtemp.toFixed(0); // between -1 and 0
+          document.getElementById("max_temp").innerHTML = maxtemp;
+
+          var mintemp = weatherData.data[0].min_temp;
+          mintemp = (mintemp > -1 && mintemp < 0 ) ? 0 : mintemp.toFixed(0); // between -1 and 0
+          document.getElementById("min_temp").innerHTML = mintemp;
+
           document.getElementById("moon_phase").className = "wi " + getMoonPhase(weatherData.data[0].moon_phase_lunation);
           document.getElementById("sunrise").innerHTML = getRegionalTime(weatherData.data[0].sunrise_ts, weatherData.timezone);
           document.getElementById("sunset").innerHTML = getRegionalTime(weatherData.data[0].sunset_ts, weatherData.timezone);
@@ -93,6 +97,14 @@ function successForecast(weatherData){
 
         //for next 3 days
         for(var index=1;index<4;index++) {
+            maxtemp = weatherData.data[index].max_temp;
+            maxtemp = (maxtemp < 0 && maxtemp > -1) ? 0 : maxtemp.toFixed(0); // between -1 and 0
+            document.getElementById("maxtemp" + index).innerHTML = maxtemp;
+
+            mintemp = weatherData.data[index].min_temp;
+            mintemp = (mintemp < 0 && mintemp > -1) ? 0 : mintemp.toFixed(0); // between -1 and 0
+            document.getElementById("mintemp" + index).innerHTML = mintemp;
+
             document.getElementById("day" + index).innerHTML = getWeekday(weatherData.data[index].ts);
             document.getElementById("mintemp" + index).innerHTML = weatherData.data[index].min_temp.toFixed(0);
             document.getElementById("maxtemp" + index).innerHTML = weatherData.data[index].max_temp.toFixed(0);

@@ -17,7 +17,7 @@ min-height: 320px;
 [class*="col-"] {
   float: left;
   padding: 5px;
-  /*border: 1px solid red;*/
+ /*border: 1px solid red;*/
 }
 
 .col-1 {width: 8.33%;}
@@ -37,14 +37,15 @@ html,body,.weather{
   height:100%;
   width:100%;
   padding:0;
-  margin:0 auto;
+  /*margin:0 auto;*/
+  margin:0px;
   background: black;
 }
 
 .city_name{
   width: 100%;
   text-align: center;
-  font-size: 12pt;
+  font-size: 16px;
   text-transform: uppercase;
   color: white;
   font-weight: normal;
@@ -61,7 +62,7 @@ html,body,.weather{
 .currentTime{
   width: 100%;
   color: white;
-  font-size: 10pt;
+  font-size: 14px;
   text-align: center;
   font-weight: normal;
   clear:both;
@@ -70,7 +71,7 @@ html,body,.weather{
 
 .weatherDescription{
   width: 100%;
-  font-size: 12pt;
+  font-size: 16px;
   font-weight: bold;
   color: #A7A4D4;
   text-align: center;
@@ -94,7 +95,7 @@ html,body,.weather{
  color: white;
  text-align: center;
  margin:0px auto;
- padding-top: 12px;
+ padding-top: 10px;
 
 }
 
@@ -111,8 +112,8 @@ html,body,.weather{
  font-size: 20px;
  text-align:right;
  font-weight: bold;
- padding-top:15px;
- padding-right:15px;
+ padding-top:10px;
+ /*padding-right:15px;*/
 }
 
 .rainGif{
@@ -124,7 +125,7 @@ html,body,.weather{
 }
 
 .containerLimit{
- font-size:10pt;
+ font-size:16px;
  margin:0px auto;
  padding-top: 0px;
 }
@@ -135,11 +136,13 @@ html,body,.weather{
 
 .limitCurrent{
  text-align: center;
+ font-size:16px;
 }
 
 .uv{
  color: yellow;
  text-align:left;
+ font-size:14px;
 }
 
 .forecastEntry{
@@ -148,7 +151,7 @@ html,body,.weather{
 
 .forecastDay{
  text-align: center;
- font-size: 12pt;
+ font-size: 16px;
  /*color: #FF8000;*/
  color: #f9099d;
  font-weight: bold;
@@ -156,7 +159,7 @@ html,body,.weather{
 
 .forecastDayLimit{
  text-align: center;
- font-size:11pt;
+ font-size:14px;
  color: white;
  font-weight: normal;
 }
@@ -181,7 +184,7 @@ html,body,.weather{
  margin-top:5px;
  margin-left:5px;
  text-align:left;
- font-size:9pt;
+ font-size:14px;
  color:#FFFFFF;
  font-weight:normal;
 }
@@ -195,17 +198,17 @@ html,body,.weather{
 i[class*="wi-sun"]{
 /*.wi-sunrise,.wi-sunset{*/
   color: #FF3F3F;
-  font-size: 13pt;
+  font-size: 16px;
 }
 
 i[class*="wi-sunrise"]{
 /*.wi-sunrise,.wi-sunset{*/
   color: yellow;
-  font-size: 13pt;
+  font-size: 16px;
 }
 
 .empty{
- margin:7px auto;
+ margin:12px auto;
 
 }
 .moonEntry{
@@ -215,7 +218,6 @@ i[class*="wi-sunrise"]{
 }
 
 .moonRing{
- /*color: #F2ECEC;*/
  color:#1c191a; /*#eae5e8;*/
  font-size: 42pt;
  position: absolute;
@@ -279,8 +281,8 @@ i[class*="wi-towards-"]{
 .optional{
    display: none;
    border-top: 1px solid #FFFFFF;
-    /*color: white;
-  font-size:18pt;
+   /*color: white;
+   font-size:18pt;
    text-align: center;*/
 }
 
@@ -294,12 +296,18 @@ i[class*="wi-towards-"]{
   }
 }
 
-.weather{
-    position: relative;/* i did for uk*/
-    /*height: 96%;
-    width: 440px;*/
-    width: 96%;
+@media screen and (min-width: 240px){
+  .rain{
+    font-size: 26px;
+  }
+}
 
+.weather{
+    width: 91%; /* keep this else uk pi4 will not show right side border*/
+    position: relative;/* i did for uk*/
+
+    /*height: 96%;
+    width: 440px;
     /*background: #7abcff; /* Old browsers *
     background: -moz-radial-gradient(center, ellipse cover,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ *
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ *
