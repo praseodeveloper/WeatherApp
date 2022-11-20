@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Our weather dashboard</title>
     <script
-            src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-            crossorigin="anonymous">
-    </script>
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
     <script>
-        $(document).ready(function() {
-            // auto refresh page after 15 minutes
-            setInterval('refreshPage()', 900000);
-        });
+      $(document).ready(function () {
+        // auto refresh page after 30 minutes
+        setInterval("refreshPage()", 1800000);
+      });
 
-        function refreshPage() {
-            location.reload();
-        }
+      function refreshPage() {
+        location.reload();
+      }
     </script>
     <style>
-        body{
-            background: black;
-        }
-        p{
-            color: white;
-        }
-        iframe{
-          justify-content: center;
-          border: 0;
-          height: 320px;
-          width: 250px;
-        }
-
+      body {
+        background: black;
+      }
+      p {
+        color: white;
+      }
+      iframe {
+        justify-content: center;
+        border: 0;
+        height: 320px;
+        width: 250px;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+      }
     </style>
-</head>
-<body>
-<iframe src="./html/weatherblr.html"></iframe>
-<iframe src="./html/weathertvm.html"></iframe>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <span class="container">
+      <weather-info postalCode="560048" country="IN"></weather-info>
+      <weather-info postalCode="76133" country="DE"></weather-info>
+    </span>
+    <iframe src="./html/weatherblr.html"></iframe>
+    <!-- <iframe src="./html/weathertvm.html"></iframe>
 <iframe src="./html/weathernoida.html"></iframe>
 <iframe src="./html/weatherlko.html"></iframe>
 <iframe src="./html/weathermum.html"></iframe>
@@ -44,13 +54,13 @@
 <iframe src="./html/weatherstuttgart.html"></iframe>
 <iframe src="./html/weatherstockholm.html"></iframe>
 <iframe src="./html/weatherglasgow.html"></iframe>
-<iframe src="./html/weatheruk.html"></iframe>
-</body>
-<footer id="footer">
+<iframe src="./html/weatheruk.html"></iframe> -->
+  </body>
+  <footer id="footer">
     <p>
-        Powered by <a href="https://www.weatherbit.io">WeatherBit</a>
-        <br>
-        Made with ❤ in Karlsruhe, Germany
+      Powered by <a href="https://www.weatherbit.io">WeatherBit</a>
+      <br />
+      Made with ❤ in Karlsruhe, Germany
     </p>
-</footer>
+  </footer>
 </html>

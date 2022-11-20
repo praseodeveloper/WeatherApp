@@ -301,10 +301,11 @@ i[class*="wi-towards-"]{
     font-size: 26px;
   }
 }
-
 .weather{
-    width: 91%; /* keep this else uk pi4 will not show right side border*/
+    width: 250px; /* keep this else uk pi4 will not show right side border*/
+    height: 320px;
     position: relative;/* i did for uk*/
+    margin: 2px;
 
     /*height: 96%;
     width: 440px;
